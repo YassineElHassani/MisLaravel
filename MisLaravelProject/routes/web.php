@@ -17,3 +17,4 @@ Route::post('/signin', [AuthController::class, 'signin']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/signup', [AuthController::class, 'signup']);
 
+Route::get('/dashboard', [AuthController::class, 'dashboard']);

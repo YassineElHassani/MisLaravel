@@ -17,6 +17,10 @@ class AuthController extends Controller
         return view('register');
     }
 
+    public function dashboard() {
+        return view('dashboard');
+    }
+
     public function signin(Request $request) {
         $data =  $request->validate([
             'email' => ['required', 'email'],
