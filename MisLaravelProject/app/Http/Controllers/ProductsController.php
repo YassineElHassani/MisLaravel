@@ -8,14 +8,18 @@ use App\Http\Requests\UpdateProductsRequest;
 
 class ProductsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         return view('welcome');
     }
-
+    
+    public function review()
+    {
+        $products = Products::orderByDesc('price')->paginate(10);
+        // dd($products);
+        return view('products', compact('products'));
+    }
 
     public function product()
     {
@@ -67,6 +71,7 @@ class ProductsController extends Controller
      */
     public function destroy(Products $products)
     {
-        //
+        $products->delete();
+        return response([]);
     }
 }
